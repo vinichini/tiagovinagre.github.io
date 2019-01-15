@@ -18,32 +18,9 @@ function createLines(){
 var size = $("#line"+i).width();
 $("#hideLine"+i).width(size+200);
 }
-// for(var i=1;i<11; i++){
-// var size = $("#line"+i).width();
-// var duration = size * 6;	
-// if(i%2!=0){
-// $('#hideLine'+i).animate({left:size},duration, function() {
-// $('#hideLine'+i+1).animate({left:size},duration)
-// });
-// }
-// }
-	
 
 }
-// function animateLines(){
-// $(".hide").each(function(index) {
-// 	debugger
-// 	var size = $(this).width();
-// 	var duration;
-// 	if(size<115){
-// duration=500;
-// 	}else{
-// duration=1000;
-// 	}
-// 	var delayTime = index *1000;	
-//     $(this).delay(delayTime).animate({left:size},duration)
-// });
-// }
+
 var delay = 0;
 function animateLines(){
 $(".hide").each(function(index) {
@@ -89,23 +66,3 @@ function changeBackground(){
 		$(".LineTextDiv").css("display", "none");
 	},9000);
 }
-
-
-
-
-
-/*
-.delay(30000)
-   .animate({left:'185px'},{ duration: 2800})                 //ao movimentar-se, as letras vão aparecendo
-   .delay(10)
-    .animate({left:'50px'},{ duration: 1100})
-    .delay(400)
-    .animate({left:'245px', width:'150px'},{ duration: 2800})  //como está a ir muito para a direita teve-se que diminuir o width para não sobrepor a caixa de pesquisa
-    .delay(400)
-    .animate({left:'390px'},{ duration: 2800});
-$('.texto')
-    .delay(34000)
-    .animate({opacity: '0' });
-     $('.texto2')
-    .delay(34000)
-    .animate({opacity: '1' });*/
