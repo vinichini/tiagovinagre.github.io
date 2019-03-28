@@ -1,29 +1,28 @@
 $( document ).ready(function() {
 createLines();
-animateLines();
+animateIntro();
 animateChange();
 changeBackground();
-
-/*$("#line11").text('<body>');
-$("#line12").text('<h1>como eee</h1>');*/
-
 
 
 });
 
 function createLines(){
-	var linesSize = $(".textTyping").length;
-	for(var i=1;i<linesSize+1; i++){
-
-var size = $("#line"+i).width();
-$("#hideLine"+i).width(size+200);
+	$(".textTyping").each(function(index) {
+var size = $(this).width();
+$(this).siblings("div").width(size+200);
+});
 }
-
-}
-
+// function createNewLines(){
+// 	var linesSize = $(".textNew").length;
+// 	for(var i=1;i<linesSize+1; i++){
+// var size = $("#lineNew"+i).width();
+// $("#hideNew"+i).width(size);
+// }
+// }
 var delay = 0;
-function animateLines(){
-$(".hide").each(function(index) {
+function animateIntro(){
+$(".anim1").each(function(index) {
     var size = $(this).siblings("span").width();
 	var duration= size/300*1000;
 	
@@ -31,6 +30,17 @@ $(".hide").each(function(index) {
     delay += duration;    
 });
 }
+// var delayNew = 0;
+// function animateNewLines(){
+// 	debugger
+// $(".hideNew").each(function(index) {
+//     var size = $(this).siblings("span").width();
+// 	var duration= size/300*1000;
+	
+//     $(this).delay(delayNew).animate({left:size},duration,"linear");
+//     delayNew += duration;    
+// });
+// }
 var delayAfter = 0;
 function animateChange(){
 	var size = $("#line12").width();
@@ -40,11 +50,11 @@ $("#line12").text("<h1>Informação Pessoal</h1>");
 var newSize = $("#line12").width();
 $("#hideLine12").width(newSize);
 $("#hideLine12").delay(200).animate({left:newSize+1},700, function (){
-$(".hideChange").each(function(index) {
-    var size = $(this).siblings("span").width();
+$(".anim2").each(function(index) {
+    var size = $(this).siblings(".textTyping").width();
 	var duration= size/300*1000;
 	
-    $(this).delay(delayAfter).animate({left:size},duration,"linear");
+    $(this).delay(delayAfter).animate({left:size+16},duration,"linear");
     delayAfter += duration;    
 });
       });
@@ -59,10 +69,14 @@ function changeBackground(){
 		$("body").css("background-color", "#ffffff");
 		$("body").css("color", "black");
 		$(".hide").css("background-color", "#ffffff");
-		$(".hideChange").css("background-color", "#ffffff");
-		$("#hideLine12").css("background-color", "#ffffff");
 		$("#line12").text("Informação Pessoal").addClass("title");
+		$("#changeTextDiv").append('<hr style="width:71%">');
 		$("#line15").text("Tiago do Carmo Vinagre").css("font-weight", "bold");
 		$(".LineTextDiv").css("display", "none");
+		$("#hideLine12").css("display", "none");
+		$(".information").addClass("info");
+		$(".main").addClass("section");
+		$("#photo").css("opacity", "1");
+
 	},9000);
 }
